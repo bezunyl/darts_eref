@@ -1,0 +1,10 @@
+(executable
+ (public_name darts_eref)
+ (name main)
+ (libraries darts_eref dream)
+ (preprocess (pps lwt_ppx)))
+
+(rule
+ (targets main.ml)
+ (deps main.eml.ml)
+ (action (run dream_eml %{deps} --workspace %{workspace_root})))
